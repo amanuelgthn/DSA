@@ -9,3 +9,5 @@ def solution(A):
         elif(i in repeated):
             repeated.remove(i)
     return(repeated[0])
+
+print([0] * (65 + 1))
