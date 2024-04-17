@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Request to extract specific information from API requests"""
+"""get request to extract specific information from a given url"""
 
 
 import requests
@@ -8,8 +8,8 @@ from sys import argv
 if len(argv) >= 2:
     url = argv[1]
 else:
-     print(f"Usage: QualificationTask.py {argv[1]}")
-     exit(1)
+    print("Usage: QualificationTask.py <url>")
+    exit(1)
 
 try:
     response = requests.get(url)
@@ -17,11 +17,10 @@ try:
     data = response.json()
 except requests.RequestException as e:
     print(f"Error fetching data: {e}")
-    exit(1)
-titles = [item["title"] for item in data if "libero" in item["title"]]
+
+titles = [item["title"] for item in data if "quia" in item["title"]]
 for title in titles:
     if isinstance(title, str):
         print(f"{title}")
     if isinstance(title, int):
-        print(f"int: {title}")
-        
+        print(f"this is an integer {title}")
