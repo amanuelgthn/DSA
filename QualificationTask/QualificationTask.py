@@ -8,7 +8,7 @@ from sys import argv
 if len(argv) >= 2:
     url = argv[1]
 else:
-     print(f"Usage: QualificationTask.py {argv[1]}")
+     print(f"Usage: QualificationTask.py <url>")
      exit(1)
 
 try:
