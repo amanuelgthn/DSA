@@ -1,2 +1,2 @@
-# DSA Searching Algorithms
-### Searching Algorithms in python
+# DSA Sorting Algorithms
+### Sorting Algorithms in Python
