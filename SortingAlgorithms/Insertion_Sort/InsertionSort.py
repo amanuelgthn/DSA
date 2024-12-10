@@ -9,5 +9,4 @@ def InsertionSort(array: list) -> list:
         while j > 0 and array[j -1] > temp:
             array[j] = array[j - 1]
             j -=1
-            print(array)
         array[j] = temp
