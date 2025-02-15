@@ -18,7 +18,7 @@ class Node:
     
     def is_leaf(self):
         """check if the node is a leaf(has no children)"""
-        return len(self.children)
+        return len(self.children) == 0
     
     def is_root(self):
         """check if the node is the root (has no parent)"""
