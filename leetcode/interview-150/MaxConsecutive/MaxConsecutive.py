@@ -6,19 +6,14 @@ def longestOnes(nums, k):
     :type k: int
     :rtype: int
     """
-
-    max = 0
-    flip = 0
+    i = j = 0
     length = len(nums)
-    for i in range(length):
-        if nums[i] == 1:
-            max += 1
-        elif nums[i] == 0 and flip <= k:
-            max += 1
-            flip += 1
-        elif nums[i] == 0:
-            max == 0
-    return max
-
-
-    
+    while j < length:
+        if nums[j] == 0:
+            k -=1
+        j += 1
+        if k < 0:
+            if nums[i] == 0:
+                k += 1
+            i += 1    
+    return j - i
