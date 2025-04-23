@@ -22,6 +22,7 @@ class BinaryTree:
         return result
 
     def traverse_inorder(self, node=None):
+        #visit/print left nnode of thhe tree before the right branch
         if node is None:
             node = self.root
         result = []
