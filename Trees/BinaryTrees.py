@@ -44,26 +44,39 @@ class BinaryTree:
         result.append(node.element)
         return result
 
+    def height(self, node=None):
+        if node is None:
+            node = self.root
+        left_height = self.height(node.left)
+        right_height = self.height(node.right)
+        return max(left_height, right_height) + 1 
+    
+    def display(self, node=None, level=0):
+        if node is None:
+            node = self.root
+        if node is not None:
+            self.display(node.right, level + 1)
+            print("    " * level + str(node.element))
+            self.display(node.left, level + 1)
 
-    def convert_to_binary_tree(general_tree_node):
-        """Convert a general tree node to a binary tree node using LCRS."""
+        
+
+    def convert_to_binary_tree(self, general_tree_node):
         if general_tree_node is None:
             return None
 
-        # Create a binary tree node for the current general tree node
         binary_node = BinaryTreeNode(general_tree_node.element)
 
-        # Convert the first child to the left child in the binary tree
         if general_tree_node.children:
-            binary_node.left = convert_to_binary_tree(general_tree_node.children[0])
+            binary_node.left = self.convert_to_binary_tree(general_tree_node.children[0])
 
-        # Convert siblings to the right child in the binary tree
         current = binary_node.left
         for sibling in general_tree_node.children[1:]:
-            current.right = convert_to_binary_tree(sibling)
+            current.right = self.convert_to_binary_tree(sibling)
             current = current.right
 
         return binary_node
+
 
 
 # Example usage:
@@ -86,3 +99,6 @@ if __name__ == "__main__":
     print("Preorder traversal of binary tree:", binary_tree.traverse_preorder())
     print("Inorder traversal of binary tree:", binary_tree.traverse_inorder())
     print("Postorder traversal of binary tree:", binary_tree.traverse_postorder())
+    print("Height of binary tree:", binary_tree.height())
+    print("Display of binary tree:")
+    binary_tree.display()
